@@ -1,0 +1,30 @@
+<project name="lavdual" default="compile">
+  <description>
+    lavadoras duales
+  </description>
+  
+  <property name="src"  location="src"/>
+  <property name="bin"  location="bin"/>
+
+  <target name="init">
+    <mkdir dir="${bin}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${bin}"/>
+  </target>
+
+  <target name="run" depends="compile">
+    <echo message="*** Test File working ***"/>
+    <java classname="PrincipalCenaSalvajes" 
+	  classpath="${bin}">
+      <arg value="1"/>
+      <arg value="2"/>
+    </java>
+  </target>
+
+  <target name="clean">
+    <delete dir="${bin}"/>
+  </target>
+
+</project>
