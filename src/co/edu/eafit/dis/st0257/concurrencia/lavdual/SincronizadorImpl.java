@@ -1,4 +1,4 @@
-package co.edu.eafit.dis.st0257.lavdual;
+package co.edu.eafit.dis.st0257.concurrencia.lavdual;
 
 public class SincronizadorImpl implements Sincronizador {
 

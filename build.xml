@@ -2,21 +2,28 @@
   <description>
     lavadoras duales
   </description>
-  
+
   <property name="src"  location="src"/>
   <property name="bin"  location="bin"/>
 
   <target name="init">
     <mkdir dir="${bin}"/>
+    <mkdir dir="${bin}/classes"/>
+    <mkdir dir="${bin}/lib"/>
   </target>
 
   <target name="compile" depends="init">
-    <javac srcdir="${src}" destdir="${bin}"/>
+    <javac srcdir="${src}" destdir="${bin}/classes"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="${bin}/lib/lavadorasdual.jar"
+	 basedir="${bin}/classes"/>
   </target>
 
   <target name="run" depends="compile">
     <echo message="*** Test File working ***"/>
-    <java classname="PrincipalCenaSalvajes" 
+    <java classname="PrincipalCenaSalvajes"
 	  classpath="${bin}">
       <arg value="1"/>
       <arg value="2"/>

@@ -1,8 +1,8 @@
-import co.edu.eafit.dis.st0257.lavdual.Lavadora;
-import co.edu.eafit.dis.st0257.lavdual.Sincronizador;
-import co.edu.eafit.dis.st0257.lavdual.GenCargas;
-import co.edu.eafit.dis.st0257.lavdual.SincronizadorImpl;
-import co.edu.eafit.dis.st0257.lavdual.GenCargasImpl;
+import co.edu.eafit.dis.st0257.concurrencia.lavdual.Lavadora;
+import co.edu.eafit.dis.st0257.concurrencia.lavdual.Sincronizador;
+import co.edu.eafit.dis.st0257.concurrencia.lavdual.GenCargas;
+import co.edu.eafit.dis.st0257.concurrencia.lavdual.SincronizadorImpl;
+import co.edu.eafit.dis.st0257.concurrencia.lavdual.GenCargasImpl;
 
 public class PrincipalLavadorasDual {
 
