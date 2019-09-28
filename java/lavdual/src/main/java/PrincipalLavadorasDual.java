@@ -7,43 +7,39 @@ import co.edu.eafit.dis.st0257.concurrencia.lavdual.GenCargasImpl;
 
 public class PrincipalLavadorasDual {
 
-   public static void usage() {
-      System.err.println("Usage: java PricipalLavadoraDual <maxCarga> <p>");
-      System.exit(1);
-   }
+    public static void usage() {
+	System.err.println("Usage: java PricipalLavadoraDual <maxCarga> <p>");
+	System.exit(1);
+    }
 
-   public static void main(String args[]) {
+    public static void main(String args[]) {
 
-      if (args.length != 2) {
-         usage();
-      }
+	if (args.length != 2) {
+	    usage();
+	}
 
-      try {
-	  int maxCarga = Integer.parseInt(args[0]);
-	  Double p = Double.parseDouble(args[0]);
 
-	  String className = args[1];
+	int maxCarga = Integer.parseInt(args[0]);
+	Double p = Double.parseDouble(args[0]);
 
-	  GenCargas genCargas = new GenCargasImpl(maxCarga);
+	String className = args[1];
 
-	  Sincronizador agenteSin = new AgenteVoid(genCargas);
+	GenCargas genCargas = new GenCargasImpl(maxCarga);
 
-	  Lavadora lavadoraA = new Lavadora(LavadoraID.LavadoraA,
-					    agenteSin, genCargas, p);
-	  Lavadora lavadoraB = new Lavadora(LavadoraID.LavadoraB,
-					    agenteSin, genCargas, 1.0 - p);
+	Sincronizador agenteSin = new AgenteVoid(genCargas);
 
-	  Thread hiloLavA = new Thread(lavadoraA);
-	  Thread hiloLavB = new Thread(lavadoraB);
-	  hiloLavA.start();
-	  hiloLavB.start();
+	Lavadora lavadoraA = new Lavadora(LavadoraID.LavadoraA,
+					  agenteSin, genCargas, p);
+	Lavadora lavadoraB = new Lavadora(LavadoraID.LavadoraB,
+					  agenteSin, genCargas, 1.0 - p);
 
-	  try {
-	      hiloLavA.join();
-	  } catch(InterruptedException ie) { }
-      } catch (ClassNotFoundException cnf) {
-	  System.err.println("Error: " + cnf);
-	  System.exit(1);
-      }
-   }
+	Thread hiloLavA = new Thread(lavadoraA);
+	Thread hiloLavB = new Thread(lavadoraB);
+	hiloLavA.start();
+	hiloLavB.start();
+
+	try {
+	    hiloLavA.join();
+	} catch(InterruptedException ie) { }
+    }
 }

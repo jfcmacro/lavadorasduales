@@ -24,6 +24,7 @@ public class Lavadora implements Runnable {
 	this.lavadoraID = lavadoraID;
 	this.agenteSin = agenteSin;
 	this.genCargas = genCargas;
+	this.random = new Random((int) System.currentTimeMillis());
 	this.p = p;
     }
 
@@ -54,7 +55,7 @@ public class Lavadora implements Runnable {
 	}
     }
 
-    public int obtenerVeces() {
+    public long obtenerVeces() {
 	return veces;
     }
 }
