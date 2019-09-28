@@ -1,6 +1,7 @@
 #include "agentevoid.h"
 
-AgenteVoid::AgenteVoid() : Sincronizador() { }
+AgenteVoid::AgenteVoid(GenCarga& genCarga)
+  : Sincronizador(), genCarga(genCarga) { }
 
 AgenteVoid::~AgenteVoid() { }
 

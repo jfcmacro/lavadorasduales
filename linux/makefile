@@ -22,4 +22,5 @@ bin:
 
 clean:
 	rm -f *.o src/*.o src/*.*~ src/*~
+	rm -f bin/lavdual
 	rmdir bin
