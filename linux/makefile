@@ -15,6 +15,8 @@ src/gencargaimpl.o: src/gencarga.cpp src/gencargaimpl.h src/gencarga.h
 
 src/agentevoid.o: src/agentevoid.cpp src/agentevoid.h src/sincronizador.h src/gencarga.h src/lavadoraid.h
 
+src/sincronizador.o: src/sincronizador.cpp src/sincronizador.h
+
 bin:
 	mkdir bin
 

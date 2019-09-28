@@ -13,11 +13,15 @@ public class Lavadora implements Runnable {
     private GenCargas genCargas;
     private Random random;
     private double p;
+    private long veces;
+    private LavadoraID lavadoraID;
 
-    public Lavadora(Sincronizador agenteSin,
+    public Lavadora(LavadoraID lavadoraID,
+		    Sincronizador agenteSin,
 		    GenCargas genCargas,
 		    double p) {
 
+	this.lavadoraID = lavadoraID;
 	this.agenteSin = agenteSin;
 	this.genCargas = genCargas;
 	this.p = p;
@@ -27,6 +31,11 @@ public class Lavadora implements Runnable {
      * lavar - se encarga de realizar el lavado
      */
     public void lavar() {
+	veces++;
+	try {
+	    Thread.sleep(random.nextInt(2000));
+	}
+	catch (InterruptedException ie) { }
     }
 
     /**
@@ -39,9 +48,13 @@ public class Lavadora implements Runnable {
 	while (true) {
 
 	    cap = (int) Math.round(genCargas.obtenerSigCarga() * p);
-	    agenteSin.arrancar(cap);
+	    agenteSin.arrancar(lavadoraID, cap);
 	    lavar();
-	    agenteSin.parar(cap);
+	    agenteSin.parar(lavadoraID);
 	}
+    }
+
+    public int obtenerVeces() {
+	return veces;
     }
 }

@@ -1,6 +1,6 @@
 package co.edu.eafit.dis.st0257.concurrencia.lavdual;
 
-public interface Sincronizador {
+public class AgenteVoid implements Sincronizador {
 
     /**
      * arracar - se encarga de iniciar la ejecución de una
@@ -8,7 +8,10 @@ public interface Sincronizador {
      * @param lavadoraID determina quien pone una carga
      * @param cap        determina la capacidad inicial de la lavadora.
      */
-    public void arrancar(LavadoraID lavadoraID, int cap);
+    @overwrite
+    public void arrancar(LavadoraID lavadoraID, int cap) {
+	// ToDo This must be implemented
+    }
 
 
     /**
@@ -16,5 +19,8 @@ public interface Sincronizador {
      *         lavadora.
      * @param lavadoraID determina quien pone un carga.
      */
-    public void parar(LavadoraID lavadoraID);
+    @overwrite
+    public void parar(LavadoraID lavadoraID) {
+	// ToDo This must be implemented
+    }
 }
