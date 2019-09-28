@@ -4,25 +4,26 @@ import java.util.Random;
 
 public class GenCargasImpl implements GenCargas {
 
-   private int cargaMax;
-   private Random random;
+    private int cargaMax;
+    private Random random;
 
-   public GenCargasImpl(int cargaMax) {
+    public GenCargasImpl(int cargaMax) {
 
-      this.cargaMax = cargaMax;
-      random = new Random((int) System.currentTimeMillis());
-   }
+	this.cargaMax = cargaMax;
 
-   public int obtenerSigCarga() {
+	random = new Random((int) System.currentTimeMillis());
+    }
 
-      return random.nextInt(cargaMax + 1);
-   }
+    public int obtenerSigCarga() {
 
-   public void establecerCargaMax(int cargaMax) {
-      this.cargaMax = cargaMax;
-   }
+	return random.nextInt(cargaMax + 1);
+    }
 
-   public int obtenerCargaMax() {
-      return this.cargaMax;
-   }
+    public void establecerCargaMax(int cargaMax) {
+	this.cargaMax = cargaMax;
+    }
+
+    public int obtenerCargaMax() {
+	return this.cargaMax;
+    }
 }

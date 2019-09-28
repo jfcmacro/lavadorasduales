@@ -11,7 +11,7 @@ public interface Sincronizador {
 
 
     /**
-     * parar - se encarga de parar la ejecución de una 
+     * parar - se encarga de parar la ejecución de una
      *         lavadora.
      * @param cap determina la capacidad de terminar la lavadora.
      */

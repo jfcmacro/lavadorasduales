@@ -12,12 +12,15 @@ public class Lavadora implements Runnable {
     private Sincronizador agenteSin;
     private GenCargas genCargas;
     private Random random;
+    private double p;
 
     public Lavadora(Sincronizador agenteSin,
-		    GenCargas genCargas) {
+		    GenCargas genCargas,
+		    double p) {
 
 	this.agenteSin = agenteSin;
 	this.genCargas = genCargas;
+	this.p = p;
     }
 
     /**
@@ -35,7 +38,7 @@ public class Lavadora implements Runnable {
 
 	while (true) {
 
-	    cap = genCargas.obtenerSigCarga();
+	    cap = (int) Math.round(genCargas.obtenerSigCarga() * p);
 	    agenteSin.arrancar(cap);
 	    lavar();
 	    agenteSin.parar(cap);
